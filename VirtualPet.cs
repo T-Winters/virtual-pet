@@ -13,20 +13,7 @@ namespace VirtualPet
         public int Thirst { get; set; }
         public int Happiness { get; set; }
         public int Energy { get; set; }
-
-        /*public void print()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(petName);
-            sb.Append(hunger);
-            sb.Append(thirst);
-            sb.Append(energy);
-            sb.Append(happiness); 
-            Console.WriteLine(sb.ToString());
-            sb.Append(string.Format(PetName + "\n" + "\n" + Hunger + "\n" + Thirst + "\n" + Energy + "\n" + Happiness, Environment.NewLine));
-            Console.WriteLine(sb.ToString());
-
-        }*/
+        
         public VirtualPet()
         {
             Hunger = 10;
@@ -36,61 +23,7 @@ namespace VirtualPet
             
         }
 
-        public int MainMenu()
-        {
-            //Console.Clear()??
-            int mainOption = 0;
-
-            StringBuilder main = new StringBuilder();
-            main.Append(string.Format(PetName + "\n" + "\n" + Hunger + "\n" + Thirst + "\n" + Happiness + "\n" + Energy, Environment.NewLine));
-            Console.WriteLine(main.ToString());
-
-            Console.WriteLine("\nWhat would you like to do?");
-            StringBuilder options = new StringBuilder();
-            options.Append(string.Format("\n" + "\n1. Feed " + PetName + "\n2. Give " + PetName + " a drink" + "\n3. Play with " + PetName + "\n4. Get some sleep Zzz", Environment.NewLine));
-            Console.WriteLine(options.ToString());
-
-            while (true)
-            {
-                string userAction = Console.ReadLine();
-                mainOption = Convert.ToInt32(userAction);
-
-                if (mainOption == 1)
-                {
-
-                }
-                else if (mainOption == 2)
-                {
-
-                }
-                else if (mainOption == 3)
-                {
-
-                }
-                else if (mainOption == 4)
-                {
-
-                }
-                else
-                {
-                    while (mainOption < 1 || mainOption > 4)
-                    {
-                        try
-                        {
-                            string userOption = Console.ReadLine();
-                            mainOption = Convert.ToInt32(userOption);
-                        }
-                        catch (Exception noOption)
-                        {
-                            Console.WriteLine("Sorry, that is not an option. \nPlease select from options 1 - 4.");
-                            Console.WriteLine("Please select another option.");
-                        }
-                    }
-                    return mainOption;
-                }
-            }
-        }
-
+        
         public void Feed()
         {
             for (int i = 1; i <= 1; i++)
