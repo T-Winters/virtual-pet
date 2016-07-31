@@ -13,10 +13,14 @@ namespace VirtualPet
         {
             VirtualPet myVirtualPet = new VirtualPet();
 
-            //WELCOME
-
+            Console.WriteLine("Let's get started!");
             Console.WriteLine("\nWhat is the name of your pet?");
             myVirtualPet.PetName = Console.ReadLine();
+
+            while (myVirtualPet.Alive())
+            {
+                myVirtualPet.MainMenu();
+            }
 
         }
     }
