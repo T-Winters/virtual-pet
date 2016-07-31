@@ -127,7 +127,7 @@ namespace VirtualPet
             int mainOption = 0;
 
             StringBuilder main = new StringBuilder();
-            main.Append(string.Format(PetName + "\n" + "\nHunger: " + Hunger + "\nThirst: " + Thirst + "\nHappiness: " + Happiness + "\nEnergy: " + Energy, Environment.NewLine));
+            main.Append(string.Format(PetName + "\n" + "\nHunger:\t\t" + Hunger + "\nThirst:\t\t" + Thirst + "\nHappiness:\t" + Happiness + "\nEnergy:\t\t" + Energy, Environment.NewLine));
             Console.WriteLine(main.ToString());
 
             Console.WriteLine("\nWhat would you like to do?");
@@ -188,27 +188,23 @@ namespace VirtualPet
                 if (Hunger >= 10)
                 {
                     Console.WriteLine("\nIt looks like " + PetName + " isn't hungry!");
-                    MainMenu();
-
                 }
                 else if (Hunger < 10 && Hunger > 2)
                 {
                     Hunger += 1;
-                    Happiness += 1;
-                    Energy += 1;
                     Console.WriteLine("\nYUM!\nYou just fed " + PetName + "!");
-                    MainMenu();
-
                 }
                 else
                 {
                     Hunger += 2;
                     Energy -= 1;
-                    Thirst -= 1;                    
+                    Thirst -= 1;
+                    Happiness += 1;                    
                     Console.WriteLine("\nNUM! NUM! NUM!" + "\n" + PetName + " ate way too much food!");
-                    MainMenu();
-
                 }
+                Console.WriteLine("Press any button to continue");
+                Console.ReadKey();
+                MainMenu();
             }
             TickFeed();
         }
@@ -220,26 +216,24 @@ namespace VirtualPet
                 if (Thirst >= 10)
                 {
                     Console.WriteLine("\nIt looks like " + PetName + " isn't thirsty!");
-                    MainMenu();
                 }
                 else if (Thirst < 10 && Thirst > 2)
                 {
                     Thirst += 1;
                     Energy += 1;
-                    Happiness += 1;
                     Console.WriteLine("\nAHH!\nYou just gave" + PetName + " a drink.");
-                    MainMenu();
                 }
                 else
                 {
                     Thirst += 2;
                     Hunger -= 1;
-                    Energy += 1;
                     Happiness += 1;
                     Console.WriteLine("\n AAAHHHH!!!" + "\n" + PetName + "drank until there was nothing left!");
-                    MainMenu();
-
                 }
+                Console.WriteLine("Press any button to continue");
+                Console.ReadKey();
+                MainMenu();
+
             }
             TickDrink();
         }
@@ -251,8 +245,6 @@ namespace VirtualPet
                 if (Happiness >= 10)
                 {
                     Console.WriteLine("\n" + PetName + " has never been more happy!");
-                    MainMenu();
-
                 }
                 else if (Happiness < 10 && Happiness > 2 && Energy > 2)
                 {
@@ -261,8 +253,6 @@ namespace VirtualPet
                     Hunger -= 1;
                     Thirst -= 1;
                     Console.WriteLine("\nWooo! That was fun!" + "\n" + PetName + " had a great time playing with you!");
-                    MainMenu();
-
                 }
                 else if (Happiness < 10 && Happiness > 2 && Energy <= 2)
                 {
@@ -270,8 +260,6 @@ namespace VirtualPet
                     Hunger -= 1;
                     Thirst -= 1;
                     Console.WriteLine("\nThat was fun!" + "\n" + PetName + " had fun, but was too tired to play for a long time.");
-                    MainMenu();
-
                 }
                 else if (Happiness <= 2 && Energy > 2)
                 {
@@ -280,8 +268,6 @@ namespace VirtualPet
                     Hunger -= 1;
                     Thirst -= 1;
                     Console.WriteLine("\nWooo! That was fun!" + "\n" + PetName + " had a great time playing with you!");
-                    MainMenu();
-
                 }
                 else
                 {
@@ -289,9 +275,11 @@ namespace VirtualPet
                     Hunger -= 1;
                     Thirst -= 1;
                     Console.WriteLine("\nThat was fun!" + "\n" + PetName + " had fun, but was too tired to play for a long time.");
-                    MainMenu();
-
                 }
+                Console.WriteLine("Press any button to continue");
+                Console.ReadKey();
+                MainMenu();
+
             }
             TickPlay();
         }
@@ -303,22 +291,21 @@ namespace VirtualPet
                 if (Energy >= 10)
                 {
                     Console.WriteLine("\n" + PetName + " has never been more happy!");
-                    MainMenu();
-
                 }
                 else if (Energy < 10 && Energy >= 8)
                 {
                     Energy += 1;                    
                     Console.WriteLine("\nZzz.." + "\n" + PetName + " enjoyed a quick nap!");
-                    MainMenu();
-
                 }
                 else
                 {
                     Energy += 2;
                     Console.WriteLine("\nZZZzzz...." + "\n" + PetName + " slept great!");
-                    MainMenu();
                 }
+                Console.WriteLine("Press any button to continue");
+                Console.ReadKey();
+                MainMenu();
+
             }
             TickSleep();
         }
@@ -357,15 +344,6 @@ namespace VirtualPet
                 Energy -= 1;
             }
             var timerSleep = new System.Threading.Timer(e => Sleep(), null, TimeSpan.Zero, TimeSpan.FromMinutes(90));
-
-        }
-
-                  
-        
-
-
-
-
-
+        }                
     }
 }
